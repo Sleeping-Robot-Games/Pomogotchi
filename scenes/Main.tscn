@@ -1,3 +1,111 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=2]
+[ext_resource path="res://assets/Barcat_001b.png" type="Texture" id=3]
+[ext_resource path="res://assets/Barcat_001c.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Start" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 184.0
+margin_right = 227.0
+margin_bottom = 223.0
+text = "START"
+
+[node name="Mode" type="RichTextLabel" parent="."]
+margin_left = 158.0
+margin_top = 17.0
+margin_right = 198.0
+margin_bottom = 36.0
+text = "Break"
+
+[node name="Time" type="RichTextLabel" parent="."]
+margin_left = 162.0
+margin_top = 59.0
+margin_right = 204.0
+margin_bottom = 80.0
+text = "5:00"
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 179, 367 )
+scale = Vector2( 4.43103, 4.36364 )
+frames = SubResource( 1 )
+speed_scale = 0.5
+playing = true
+
+[node name="FocusThemeContainer" type="HBoxContainer" parent="."]
+margin_left = 77.0
+margin_top = 96.0
+margin_right = 302.0
+margin_bottom = 168.0
+custom_constants/separation = 10
+
+[node name="Adventure" type="Button" parent="FocusThemeContainer"]
+margin_right = 78.0
+margin_bottom = 72.0
+text = "Adventure"
+
+[node name="Exercise" type="Button" parent="FocusThemeContainer"]
+margin_left = 88.0
+margin_right = 153.0
+margin_bottom = 72.0
+text = "Exercise"
+
+[node name="Study" type="Button" parent="FocusThemeContainer"]
+margin_left = 163.0
+margin_right = 210.0
+margin_bottom = 72.0
+text = "Study"
+
+[node name="TaskContainer" type="HBoxContainer" parent="."]
+margin_left = 13.0
+margin_top = 534.0
+margin_right = 342.0
+margin_bottom = 611.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="TaskContainer"]
+margin_left = 42.0
+margin_right = 75.0
+margin_bottom = 77.0
+text = "Pet"
+
+[node name="Button2" type="Button" parent="TaskContainer"]
+margin_left = 85.0
+margin_right = 128.0
+margin_bottom = 77.0
+text = "Feed"
+
+[node name="Button3" type="Button" parent="TaskContainer"]
+margin_left = 138.0
+margin_right = 176.0
+margin_bottom = 77.0
+text = "Play"
+
+[node name="Button4" type="Button" parent="TaskContainer"]
+margin_left = 186.0
+margin_right = 233.0
+margin_bottom = 77.0
+text = "Wash"
+
+[node name="Button5" type="Button" parent="TaskContainer"]
+margin_left = 243.0
+margin_right = 286.0
+margin_bottom = 77.0
+text = "Shop"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
