@@ -1,16 +1,13 @@
 extends Node
 
+const PET_STATE = {
+	'gold': 0,
+	'intelligence': 0,
+	'strength': 0,
+	'hunger': 0,
+	'happiness': 0,
+	'fp': 0,
+}
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func change_pet_state(state, num):
+	PET_STATE[state] += num

@@ -1,10 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=2]
 [ext_resource path="res://assets/Barcat_001b.png" type="Texture" id=3]
 [ext_resource path="res://assets/Barcat_001c.png" type="Texture" id=4]
 [ext_resource path="res://resources/theme_focus_group.tres" type="ButtonGroup" id=5]
+[ext_resource path="res://resources/alagard.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 6 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,45 +28,52 @@ script = ExtResource( 1 )
 focus_theme_group = ExtResource( 5 )
 
 [node name="Start" type="Button" parent="."]
-margin_left = 133.0
-margin_top = 184.0
-margin_right = 225.0
-margin_bottom = 210.0
+margin_left = 136.0
+margin_top = 170.0
+margin_right = 236.0
+margin_bottom = 209.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "START"
 
 [node name="Mode" type="RichTextLabel" parent="."]
-margin_left = 159.0
-margin_top = 20.0
-margin_right = 199.0
-margin_bottom = 39.0
+margin_left = 114.0
+margin_top = 10.0
+margin_right = 249.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 100, 30 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Break"
+scroll_active = false
 
 [node name="Time" type="RichTextLabel" parent="."]
-margin_left = 162.0
-margin_top = 59.0
-margin_right = 204.0
-margin_bottom = 80.0
-text = "5:00"
+margin_left = 144.0
+margin_top = 61.0
+margin_right = 228.0
+margin_bottom = 90.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "25:00"
+scroll_active = false
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 179, 367 )
+position = Vector2( 185, 351 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 speed_scale = 0.5
 playing = true
 
 [node name="FocusThemeContainer" type="HBoxContainer" parent="."]
-margin_left = 57.0
-margin_top = 89.0
-margin_right = 315.0
-margin_bottom = 161.0
+margin_left = 54.0
+margin_top = 101.0
+margin_right = 312.0
+margin_bottom = 157.0
 custom_constants/separation = 10
 alignment = 1
 
 [node name="Adventure" type="Button" parent="FocusThemeContainer"]
 margin_right = 78.0
-margin_bottom = 72.0
+margin_bottom = 56.0
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
@@ -67,7 +83,7 @@ text = "Adventure"
 [node name="Exercise" type="Button" parent="FocusThemeContainer"]
 margin_left = 88.0
 margin_right = 153.0
-margin_bottom = 72.0
+margin_bottom = 56.0
 toggle_mode = true
 group = ExtResource( 5 )
 text = "Exercise"
@@ -75,7 +91,7 @@ text = "Exercise"
 [node name="Study" type="Button" parent="FocusThemeContainer"]
 margin_left = 163.0
 margin_right = 210.0
-margin_bottom = 72.0
+margin_bottom = 56.0
 toggle_mode = true
 group = ExtResource( 5 )
 text = "Study"
@@ -83,7 +99,8 @@ text = "Study"
 [node name="Play" type="Button" parent="FocusThemeContainer"]
 margin_left = 220.0
 margin_right = 258.0
-margin_bottom = 72.0
+margin_bottom = 56.0
+group = ExtResource( 5 )
 text = "Play"
 
 [node name="TaskContainer" type="HBoxContainer" parent="."]
@@ -182,6 +199,13 @@ margin_top = 481.0
 margin_right = 238.0
 margin_bottom = 495.0
 text = "Friend Points: 20"
+
+[node name="GoldLabel" type="Label" parent="."]
+margin_left = 156.0
+margin_top = 464.0
+margin_right = 210.0
+margin_bottom = 478.0
+text = "Gold: 10"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
