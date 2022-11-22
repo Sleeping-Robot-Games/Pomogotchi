@@ -43,21 +43,20 @@ text = "5:00"
 position = Vector2( 179, 367 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 speed_scale = 0.5
 playing = true
 
 [node name="FocusThemeContainer" type="HBoxContainer" parent="."]
-margin_left = 77.0
-margin_top = 96.0
-margin_right = 302.0
-margin_bottom = 168.0
+margin_left = 57.0
+margin_top = 89.0
+margin_right = 315.0
+margin_bottom = 161.0
 custom_constants/separation = 10
 alignment = 1
 
 [node name="Adventure" type="Button" parent="FocusThemeContainer"]
-margin_left = 7.0
-margin_right = 85.0
+margin_right = 78.0
 margin_bottom = 72.0
 focus_mode = 0
 toggle_mode = true
@@ -66,20 +65,26 @@ group = ExtResource( 5 )
 text = "Adventure"
 
 [node name="Exercise" type="Button" parent="FocusThemeContainer"]
-margin_left = 95.0
-margin_right = 160.0
+margin_left = 88.0
+margin_right = 153.0
 margin_bottom = 72.0
 toggle_mode = true
 group = ExtResource( 5 )
 text = "Exercise"
 
 [node name="Study" type="Button" parent="FocusThemeContainer"]
-margin_left = 170.0
-margin_right = 217.0
+margin_left = 163.0
+margin_right = 210.0
 margin_bottom = 72.0
 toggle_mode = true
 group = ExtResource( 5 )
 text = "Study"
+
+[node name="Play" type="Button" parent="FocusThemeContainer"]
+margin_left = 220.0
+margin_right = 258.0
+margin_bottom = 72.0
+text = "Play"
 
 [node name="TaskContainer" type="HBoxContainer" parent="."]
 margin_left = 12.0
