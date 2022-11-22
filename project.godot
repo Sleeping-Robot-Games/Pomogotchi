@@ -14,6 +14,11 @@ config/name="Pomogotchi"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+c="*res://scripts/constants.gd"
+g="*res://scripts/global.gd"
+
 [display]
 
 window/size/width=360

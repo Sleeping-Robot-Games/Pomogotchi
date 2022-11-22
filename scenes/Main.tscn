@@ -43,6 +43,7 @@ text = "5:00"
 position = Vector2( 179, 367 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
+frame = 3
 speed_scale = 0.5
 playing = true
 
@@ -58,7 +59,9 @@ alignment = 1
 margin_left = 7.0
 margin_right = 85.0
 margin_bottom = 72.0
+focus_mode = 0
 toggle_mode = true
+enabled_focus_mode = 0
 group = ExtResource( 5 )
 text = "Adventure"
 
