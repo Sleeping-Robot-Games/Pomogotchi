@@ -6,15 +6,9 @@ var timer_seconds =  c.STANDARD_FOCUS_SECONDS
 
 export(ButtonGroup) var focus_theme_group
 
-#onready var ui_to_hide_on_focus = [
-#	$TaskContainer,
-#	$Hunger,
-#	$Happiness,
-#	$Intelligence,
-#	$Strength,
-#	$FPLabel,
-#	$GoldLabel
-#]
+onready var ui_to_hide_on_focus = [
+	$TaskContainer,
+]
 
 func _ready():
 	$Mode.text = timer_mode
@@ -32,7 +26,9 @@ func update_display_time():
 func _on_Ready_button_up():
 	if $Timer.is_stopped():
 		if timer_mode == c.FOCUS:
-			$FocusPopUp.show()
+			$FocusPopUp.popup()
+		else:
+			$BreakPopUp.popup()
 	else:
 		$Timer.paused = !$Timer.paused
 		if $Timer.paused:
@@ -49,17 +45,16 @@ func _on_Timer_timeout():
 		# Flip from Focus to Break or Vis Versa
 		timer_seconds = c.STANDARD_BREAK_SECONDS if timer_mode == c.FOCUS else c.STANDARD_FOCUS_SECONDS
 		timer_mode = c.BREAK if timer_mode == c.FOCUS else c.FOCUS
-		# Update the start button and mode text
-		
-		## TODO: Show BREAK popup
-		
+		# Update the ready button and mode text
 		$Ready.text = 'Ready'
 		$Mode.text = timer_mode
-		# Start the timer again automatically if just turned to break
+		
 		if timer_mode == c.BREAK:
-			$Timer.start()
-			$Ready.text = "Pause"
-			
-			focus_theme_mode = ""
+			$BreakPopUp.popup()
+			# Show other UI not relevant to the focus
+			for element in ui_to_hide_on_focus:
+				element.show()
+		else:
+			$FocusPopUp.popup()
 		
 	update_display_time()

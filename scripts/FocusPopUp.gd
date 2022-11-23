@@ -5,10 +5,10 @@ onready var timer = main.get_node('Timer')
 onready var ready_button = main.get_node("Ready")
 
 const DESCRIPTION_THEME_TEXT = {
-	'Adventure': "",
-	'Exercise': "",
-	'Study': "",
-	'Play': ""
+	'Adventure': "Your pet will adventure during this focus session! Gain +2 gold",
+	'Exercise': "Your pet will exercise during this focus session! Gain +1 strength",
+	'Study': "Your pet will study during this focus session! Gain +1 intelligence",
+	'Play': "Your pet will play during this focus session! Gain +2 happiness"
 }
 
 func _ready():
@@ -21,6 +21,9 @@ func _on_Start_button_up():
 		timer.start()
 		ready_button.text = 'Pause'
 		hide()
+		# Hide other UI not relevant to the focus
+		for element in main.ui_to_hide_on_focus:
+			element.hide()
 
 func _on_FocusTheme_pressed():
 	main.focus_theme_mode = main.focus_theme_group.get_pressed_button().name

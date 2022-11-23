@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://resources/theme_focus_group.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://resources/alagard.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scripts/FocusPopUp.gd" type="Script" id=7]
+[ext_resource path="res://scripts/BreakPopUp.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
@@ -29,6 +30,13 @@ size = 32
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
 
 [node name="Main" type="Node2D"]
@@ -72,44 +80,45 @@ speed_scale = 0.5
 playing = true
 
 [node name="TaskContainer" type="HBoxContainer" parent="."]
-margin_left = 12.0
-margin_top = 506.0
-margin_right = 341.0
-margin_bottom = 583.0
+margin_left = 15.0
+margin_top = 527.0
+margin_right = 344.0
+margin_bottom = 604.0
 custom_constants/separation = 10
 alignment = 1
 
 [node name="Button" type="Button" parent="TaskContainer"]
-margin_left = 42.0
-margin_right = 75.0
+margin_left = 35.0
+margin_right = 88.0
 margin_bottom = 77.0
-text = "Pet"
+text = "Profile"
 
 [node name="Button2" type="Button" parent="TaskContainer"]
-margin_left = 85.0
-margin_right = 128.0
+margin_left = 98.0
+margin_right = 141.0
 margin_bottom = 77.0
 text = "Feed"
 
 [node name="Button3" type="Button" parent="TaskContainer"]
-margin_left = 138.0
-margin_right = 176.0
+margin_left = 151.0
+margin_right = 184.0
 margin_bottom = 77.0
-text = "Play"
+text = "Pet"
 
 [node name="Button4" type="Button" parent="TaskContainer"]
-margin_left = 186.0
-margin_right = 233.0
+margin_left = 194.0
+margin_right = 241.0
 margin_bottom = 77.0
 text = "Wash"
 
 [node name="Button5" type="Button" parent="TaskContainer"]
-margin_left = 243.0
-margin_right = 286.0
+margin_left = 251.0
+margin_right = 294.0
 margin_bottom = 77.0
 text = "Shop"
 
 [node name="Hunger" type="ProgressBar" parent="."]
+visible = false
 margin_left = 15.0
 margin_top = 616.0
 margin_right = 80.0
@@ -123,6 +132,7 @@ margin_bottom = -5.0
 text = "Hunger"
 
 [node name="Happiness" type="ProgressBar" parent="."]
+visible = false
 margin_left = 268.0
 margin_top = 615.0
 margin_right = 333.0
@@ -136,6 +146,7 @@ margin_bottom = -4.0
 text = "Happiness"
 
 [node name="Intelligence" type="ProgressBar" parent="."]
+visible = false
 margin_left = 180.0
 margin_top = 615.0
 margin_right = 245.0
@@ -149,6 +160,7 @@ margin_bottom = -3.0
 text = "Intelligence"
 
 [node name="Strength" type="ProgressBar" parent="."]
+visible = false
 margin_left = 96.0
 margin_top = 615.0
 margin_right = 161.0
@@ -162,6 +174,7 @@ margin_bottom = -3.0
 text = "Strength"
 
 [node name="FPLabel" type="Label" parent="."]
+visible = false
 margin_left = 130.0
 margin_top = 481.0
 margin_right = 238.0
@@ -169,6 +182,7 @@ margin_bottom = 495.0
 text = "Friend Points: 20"
 
 [node name="GoldLabel" type="Label" parent="."]
+visible = false
 margin_left = 156.0
 margin_top = 464.0
 margin_right = 210.0
@@ -180,7 +194,6 @@ text = "Gold: 10"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="FocusPopUp" type="WindowDialog" parent="."]
-visible = true
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 334.0
@@ -255,7 +268,40 @@ bbcode_text = "[center]Your pet will exercise during this focus session! Gaining
 text = "Your pet will exercise during this focus session! Gaining +1 strength!"
 scroll_active = false
 
+[node name="BreakPopUp" type="WindowDialog" parent="."]
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 336.0
+margin_bottom = 362.0
+script = ExtResource( 8 )
+
+[node name="Title" type="Label" parent="BreakPopUp"]
+margin_left = 47.0
+margin_top = 13.0
+margin_right = 263.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 6 )
+text = "Time to Break!"
+
+[node name="Results" type="RichTextLabel" parent="BreakPopUp"]
+margin_left = 45.0
+margin_top = 72.0
+margin_right = 277.0
+margin_bottom = 160.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
+text = "Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
+
+[node name="Start" type="Button" parent="BreakPopUp"]
+margin_left = 125.0
+margin_top = 184.0
+margin_right = 197.0
+margin_bottom = 221.0
+text = "START"
+
 [connection signal="button_up" from="Ready" to="." method="_on_Ready_button_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="popup_hide" from="FocusPopUp" to="FocusPopUp" method="_on_FocusPopUp_popup_hide"]
 [connection signal="button_up" from="FocusPopUp/Start" to="FocusPopUp" method="_on_Start_button_up"]
+[connection signal="button_up" from="BreakPopUp/Start" to="BreakPopUp" method="_on_Start_button_up"]
