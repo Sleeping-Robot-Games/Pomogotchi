@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/Barcat_001c.png" type="Texture" id=4]
 [ext_resource path="res://resources/theme_focus_group.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://resources/alagard.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scripts/FocusPopUp.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
@@ -23,18 +24,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 focus_theme_group = ExtResource( 5 )
 
-[node name="Start" type="Button" parent="."]
-margin_left = 136.0
-margin_top = 170.0
-margin_right = 236.0
-margin_bottom = 209.0
+[node name="Ready" type="Button" parent="."]
+margin_left = 132.0
+margin_top = 126.0
+margin_right = 234.0
+margin_bottom = 149.0
 focus_mode = 0
 enabled_focus_mode = 0
-text = "START"
+text = "Ready"
 
 [node name="Mode" type="RichTextLabel" parent="."]
 margin_left = 114.0
@@ -59,49 +67,9 @@ scroll_active = false
 position = Vector2( 185, 351 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 speed_scale = 0.5
 playing = true
-
-[node name="FocusThemeContainer" type="HBoxContainer" parent="."]
-margin_left = 54.0
-margin_top = 101.0
-margin_right = 312.0
-margin_bottom = 157.0
-custom_constants/separation = 10
-alignment = 1
-
-[node name="Adventure" type="Button" parent="FocusThemeContainer"]
-margin_right = 78.0
-margin_bottom = 56.0
-focus_mode = 0
-toggle_mode = true
-enabled_focus_mode = 0
-group = ExtResource( 5 )
-text = "Adventure"
-
-[node name="Exercise" type="Button" parent="FocusThemeContainer"]
-margin_left = 88.0
-margin_right = 153.0
-margin_bottom = 56.0
-toggle_mode = true
-group = ExtResource( 5 )
-text = "Exercise"
-
-[node name="Study" type="Button" parent="FocusThemeContainer"]
-margin_left = 163.0
-margin_right = 210.0
-margin_bottom = 56.0
-toggle_mode = true
-group = ExtResource( 5 )
-text = "Study"
-
-[node name="Play" type="Button" parent="FocusThemeContainer"]
-margin_left = 220.0
-margin_right = 258.0
-margin_bottom = 56.0
-group = ExtResource( 5 )
-text = "Play"
 
 [node name="TaskContainer" type="HBoxContainer" parent="."]
 margin_left = 12.0
@@ -211,5 +179,83 @@ text = "Gold: 10"
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="button_up" from="Start" to="." method="_on_Start_button_up"]
+[node name="FocusPopUp" type="WindowDialog" parent="."]
+visible = true
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 334.0
+margin_bottom = 357.0
+script = ExtResource( 7 )
+
+[node name="FocusThemeContainer" type="HBoxContainer" parent="FocusPopUp"]
+margin_left = 27.0
+margin_top = 55.0
+margin_right = 285.0
+margin_bottom = 111.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Adventure" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+margin_right = 78.0
+margin_bottom = 56.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 5 )
+text = "Adventure"
+
+[node name="Exercise" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+margin_left = 88.0
+margin_right = 153.0
+margin_bottom = 56.0
+toggle_mode = true
+group = ExtResource( 5 )
+text = "Exercise"
+
+[node name="Study" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+margin_left = 163.0
+margin_right = 210.0
+margin_bottom = 56.0
+toggle_mode = true
+group = ExtResource( 5 )
+text = "Study"
+
+[node name="Play" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+margin_left = 220.0
+margin_right = 258.0
+margin_bottom = 56.0
+toggle_mode = true
+group = ExtResource( 5 )
+text = "Play"
+
+[node name="Start" type="Button" parent="FocusPopUp"]
+margin_left = 123.0
+margin_top = 189.0
+margin_right = 191.0
+margin_bottom = 221.0
+text = "START"
+
+[node name="Title" type="Label" parent="FocusPopUp"]
+margin_left = 47.0
+margin_top = 13.0
+margin_right = 263.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 4 )
+text = "Time to Focus!"
+
+[node name="ThemeDescription" type="RichTextLabel" parent="FocusPopUp"]
+visible = false
+margin_left = 13.0
+margin_top = 125.0
+margin_right = 297.0
+margin_bottom = 178.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]Your pet will exercise during this focus session! Gaining +1 strength!"
+text = "Your pet will exercise during this focus session! Gaining +1 strength!"
+scroll_active = false
+
+[connection signal="button_up" from="Ready" to="." method="_on_Ready_button_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="popup_hide" from="FocusPopUp" to="FocusPopUp" method="_on_FocusPopUp_popup_hide"]
+[connection signal="button_up" from="FocusPopUp/Start" to="FocusPopUp" method="_on_Start_button_up"]
