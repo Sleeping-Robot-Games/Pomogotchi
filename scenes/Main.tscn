@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=2]
 [ext_resource path="res://assets/Barcat_001b.png" type="Texture" id=3]
 [ext_resource path="res://assets/Barcat_001c.png" type="Texture" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://resources/alagard.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scripts/FocusPopUp.gd" type="Script" id=7]
 [ext_resource path="res://scripts/BreakPopUp.gd" type="Script" id=8]
+[ext_resource path="res://scenes/Profile.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
@@ -39,11 +40,12 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
 
-[node name="Main" type="Node2D"]
-script = ExtResource( 1 )
-focus_theme_group = ExtResource( 5 )
+[node name="Game" type="Node2D"]
 
-[node name="Ready" type="Button" parent="."]
+[node name="Main" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Ready" type="Button" parent="Main"]
 margin_left = 132.0
 margin_top = 126.0
 margin_right = 234.0
@@ -52,7 +54,7 @@ focus_mode = 0
 enabled_focus_mode = 0
 text = "Ready"
 
-[node name="Mode" type="RichTextLabel" parent="."]
+[node name="Mode" type="RichTextLabel" parent="Main"]
 margin_left = 114.0
 margin_top = 10.0
 margin_right = 249.0
@@ -62,7 +64,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Break"
 scroll_active = false
 
-[node name="Time" type="RichTextLabel" parent="."]
+[node name="Time" type="RichTextLabel" parent="Main"]
 margin_left = 144.0
 margin_top = 61.0
 margin_right = 228.0
@@ -71,15 +73,15 @@ custom_fonts/normal_font = SubResource( 3 )
 text = "25:00"
 scroll_active = false
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="Main"]
 position = Vector2( 185, 351 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 speed_scale = 0.5
 playing = true
 
-[node name="TaskContainer" type="HBoxContainer" parent="."]
+[node name="TaskContainer" type="HBoxContainer" parent="Main"]
 margin_left = 15.0
 margin_top = 527.0
 margin_right = 344.0
@@ -87,120 +89,49 @@ margin_bottom = 604.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Button" type="Button" parent="TaskContainer"]
+[node name="Profile" type="Button" parent="Main/TaskContainer"]
 margin_left = 35.0
 margin_right = 88.0
 margin_bottom = 77.0
 text = "Profile"
 
-[node name="Button2" type="Button" parent="TaskContainer"]
+[node name="Button2" type="Button" parent="Main/TaskContainer"]
 margin_left = 98.0
 margin_right = 141.0
 margin_bottom = 77.0
 text = "Feed"
 
-[node name="Button3" type="Button" parent="TaskContainer"]
+[node name="Button3" type="Button" parent="Main/TaskContainer"]
 margin_left = 151.0
 margin_right = 184.0
 margin_bottom = 77.0
 text = "Pet"
 
-[node name="Button4" type="Button" parent="TaskContainer"]
+[node name="Button4" type="Button" parent="Main/TaskContainer"]
 margin_left = 194.0
 margin_right = 241.0
 margin_bottom = 77.0
 text = "Wash"
 
-[node name="Button5" type="Button" parent="TaskContainer"]
+[node name="Button5" type="Button" parent="Main/TaskContainer"]
 margin_left = 251.0
 margin_right = 294.0
 margin_bottom = 77.0
 text = "Shop"
 
-[node name="Hunger" type="ProgressBar" parent="."]
-visible = false
-margin_left = 15.0
-margin_top = 616.0
-margin_right = 80.0
-margin_bottom = 630.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
+root_node = NodePath("../..")
 
-[node name="Label" type="Label" parent="Hunger"]
-margin_left = 11.0
-margin_top = -19.0
-margin_right = 57.0
-margin_bottom = -5.0
-text = "Hunger"
+[node name="Timer" type="Timer" parent="Main"]
 
-[node name="Happiness" type="ProgressBar" parent="."]
-visible = false
-margin_left = 268.0
-margin_top = 615.0
-margin_right = 333.0
-margin_bottom = 629.0
-
-[node name="Label" type="Label" parent="Happiness"]
-margin_left = -2.0
-margin_top = -18.0
-margin_right = 65.0
-margin_bottom = -4.0
-text = "Happiness"
-
-[node name="Intelligence" type="ProgressBar" parent="."]
-visible = false
-margin_left = 180.0
-margin_top = 615.0
-margin_right = 245.0
-margin_bottom = 629.0
-
-[node name="Label" type="Label" parent="Intelligence"]
-margin_left = -5.0
-margin_top = -17.0
-margin_right = 71.0
-margin_bottom = -3.0
-text = "Intelligence"
-
-[node name="Strength" type="ProgressBar" parent="."]
-visible = false
-margin_left = 96.0
-margin_top = 615.0
-margin_right = 161.0
-margin_bottom = 629.0
-
-[node name="Label" type="Label" parent="Strength"]
-margin_left = 7.0
-margin_top = -17.0
-margin_right = 60.0
-margin_bottom = -3.0
-text = "Strength"
-
-[node name="FPLabel" type="Label" parent="."]
-visible = false
-margin_left = 130.0
-margin_top = 481.0
-margin_right = 238.0
-margin_bottom = 495.0
-text = "Friend Points: 20"
-
-[node name="GoldLabel" type="Label" parent="."]
-visible = false
-margin_left = 156.0
-margin_top = 464.0
-margin_right = 210.0
-margin_bottom = 478.0
-text = "Gold: 10"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="FocusPopUp" type="WindowDialog" parent="."]
+[node name="FocusPopUp" type="WindowDialog" parent="Main"]
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 334.0
 margin_bottom = 357.0
 script = ExtResource( 7 )
 
-[node name="FocusThemeContainer" type="HBoxContainer" parent="FocusPopUp"]
+[node name="FocusThemeContainer" type="HBoxContainer" parent="Main/FocusPopUp"]
 margin_left = 27.0
 margin_top = 55.0
 margin_right = 285.0
@@ -208,7 +139,7 @@ margin_bottom = 111.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Adventure" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+[node name="Adventure" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
 margin_right = 78.0
 margin_bottom = 56.0
 focus_mode = 0
@@ -217,7 +148,7 @@ enabled_focus_mode = 0
 group = ExtResource( 5 )
 text = "Adventure"
 
-[node name="Exercise" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+[node name="Exercise" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
 margin_left = 88.0
 margin_right = 153.0
 margin_bottom = 56.0
@@ -225,7 +156,7 @@ toggle_mode = true
 group = ExtResource( 5 )
 text = "Exercise"
 
-[node name="Study" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+[node name="Study" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
 margin_left = 163.0
 margin_right = 210.0
 margin_bottom = 56.0
@@ -233,7 +164,7 @@ toggle_mode = true
 group = ExtResource( 5 )
 text = "Study"
 
-[node name="Play" type="Button" parent="FocusPopUp/FocusThemeContainer"]
+[node name="Play" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
 margin_left = 220.0
 margin_right = 258.0
 margin_bottom = 56.0
@@ -241,14 +172,14 @@ toggle_mode = true
 group = ExtResource( 5 )
 text = "Play"
 
-[node name="Start" type="Button" parent="FocusPopUp"]
+[node name="Start" type="Button" parent="Main/FocusPopUp"]
 margin_left = 123.0
 margin_top = 189.0
 margin_right = 191.0
 margin_bottom = 221.0
 text = "START"
 
-[node name="Title" type="Label" parent="FocusPopUp"]
+[node name="Title" type="Label" parent="Main/FocusPopUp"]
 margin_left = 47.0
 margin_top = 13.0
 margin_right = 263.0
@@ -256,7 +187,7 @@ margin_bottom = 43.0
 custom_fonts/font = SubResource( 4 )
 text = "Time to Focus!"
 
-[node name="ThemeDescription" type="RichTextLabel" parent="FocusPopUp"]
+[node name="ThemeDescription" type="RichTextLabel" parent="Main/FocusPopUp"]
 visible = false
 margin_left = 13.0
 margin_top = 125.0
@@ -268,14 +199,14 @@ bbcode_text = "[center]Your pet will exercise during this focus session! Gaining
 text = "Your pet will exercise during this focus session! Gaining +1 strength!"
 scroll_active = false
 
-[node name="BreakPopUp" type="WindowDialog" parent="."]
+[node name="BreakPopUp" type="WindowDialog" parent="Main"]
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 336.0
 margin_bottom = 362.0
 script = ExtResource( 8 )
 
-[node name="Title" type="Label" parent="BreakPopUp"]
+[node name="Title" type="Label" parent="Main/BreakPopUp"]
 margin_left = 47.0
 margin_top = 13.0
 margin_right = 263.0
@@ -283,7 +214,7 @@ margin_bottom = 43.0
 custom_fonts/font = SubResource( 6 )
 text = "Time to Break!"
 
-[node name="Results" type="RichTextLabel" parent="BreakPopUp"]
+[node name="Results" type="RichTextLabel" parent="Main/BreakPopUp"]
 margin_left = 45.0
 margin_top = 72.0
 margin_right = 277.0
@@ -293,15 +224,19 @@ bbcode_enabled = true
 bbcode_text = "[center]Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
 text = "Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
 
-[node name="Start" type="Button" parent="BreakPopUp"]
+[node name="Start" type="Button" parent="Main/BreakPopUp"]
 margin_left = 125.0
 margin_top = 184.0
 margin_right = 197.0
 margin_bottom = 221.0
 text = "START"
 
-[connection signal="button_up" from="Ready" to="." method="_on_Ready_button_up"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="popup_hide" from="FocusPopUp" to="FocusPopUp" method="_on_FocusPopUp_popup_hide"]
-[connection signal="button_up" from="FocusPopUp/Start" to="FocusPopUp" method="_on_Start_button_up"]
-[connection signal="button_up" from="BreakPopUp/Start" to="BreakPopUp" method="_on_Start_button_up"]
+[node name="Profile" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[connection signal="button_up" from="Main/Ready" to="." method="_on_Ready_button_up"]
+[connection signal="button_up" from="Main/TaskContainer/Profile" to="." method="_on_Profile_button_up"]
+[connection signal="timeout" from="Main/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="popup_hide" from="Main/FocusPopUp" to="Main/FocusPopUp" method="_on_FocusPopUp_popup_hide"]
+[connection signal="button_up" from="Main/FocusPopUp/Start" to="Main/FocusPopUp" method="_on_Start_button_up"]
+[connection signal="button_up" from="Main/BreakPopUp/Start" to="Main/BreakPopUp" method="_on_Start_button_up"]

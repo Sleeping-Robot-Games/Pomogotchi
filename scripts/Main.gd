@@ -58,3 +58,8 @@ func _on_Timer_timeout():
 			$FocusPopUp.popup()
 		
 	update_display_time()
+
+
+func _on_Profile_button_up():
+	hide()
+	get_node('../Profile').show()
