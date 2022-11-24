@@ -44,6 +44,7 @@ font_data = ExtResource( 6 )
 
 [node name="Main" type="Node2D" parent="."]
 script = ExtResource( 1 )
+focus_theme_group = ExtResource( 5 )
 
 [node name="Ready" type="Button" parent="Main"]
 margin_left = 132.0
@@ -235,7 +236,7 @@ text = "START"
 visible = false
 
 [connection signal="button_up" from="Main/Ready" to="." method="_on_Ready_button_up"]
-[connection signal="button_up" from="Main/TaskContainer/Profile" to="." method="_on_Profile_button_up"]
+[connection signal="button_up" from="Main/TaskContainer/Profile" to="Main" method="_on_Profile_button_up"]
 [connection signal="timeout" from="Main/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="popup_hide" from="Main/FocusPopUp" to="Main/FocusPopUp" method="_on_FocusPopUp_popup_hide"]
 [connection signal="button_up" from="Main/FocusPopUp/Start" to="Main/FocusPopUp" method="_on_Start_button_up"]

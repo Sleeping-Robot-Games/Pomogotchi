@@ -30,7 +30,7 @@ text = "Back"
 position = Vector2( 110.5, 143 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 speed_scale = 0.5
 playing = true
 
