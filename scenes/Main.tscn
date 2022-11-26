@@ -1091,57 +1091,55 @@ text = "25:00"
 scroll_active = false
 
 [node name="Sprite" type="AnimatedSprite" parent="Main"]
-position = Vector2( 179, 389 )
+position = Vector2( 179, 400 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( 0.799999, -0.199997 )
 
 [node name="TaskContainer" type="HBoxContainer" parent="Main"]
 margin_left = -4.0
-margin_top = 473.0
+margin_top = 514.0
 margin_right = 88.0
-margin_bottom = 550.0
+margin_bottom = 531.0
 rect_scale = Vector2( 4, 4 )
 custom_constants/separation = 1
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Profile" type="TextureButton" parent="Main/TaskContainer"]
 margin_left = 4.0
 margin_right = 20.0
-margin_bottom = 77.0
+margin_bottom = 17.0
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 20 )
 
 [node name="Button2" type="TextureButton" parent="Main/TaskContainer"]
 margin_left = 21.0
 margin_right = 37.0
-margin_bottom = 77.0
+margin_bottom = 17.0
 texture_normal = ExtResource( 18 )
 texture_pressed = ExtResource( 24 )
 
 [node name="Button3" type="TextureButton" parent="Main/TaskContainer"]
 margin_left = 38.0
 margin_right = 54.0
-margin_bottom = 77.0
+margin_bottom = 17.0
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 22 )
 
 [node name="Button4" type="TextureButton" parent="Main/TaskContainer"]
 margin_left = 55.0
 margin_right = 71.0
-margin_bottom = 77.0
+margin_bottom = 17.0
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 21 )
 
 [node name="Button5" type="TextureButton" parent="Main/TaskContainer"]
 margin_left = 72.0
 margin_right = 88.0
-margin_bottom = 77.0
+margin_bottom = 17.0
 texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 26 )
 
