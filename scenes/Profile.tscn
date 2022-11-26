@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/Barcat_001a.png" type="Texture" id=1]
-[ext_resource path="res://assets/Barcat_001b.png" type="Texture" id=2]
-[ext_resource path="res://assets/Barcat_001c.png" type="Texture" id=3]
+[ext_resource path="res://assets/blobtest2.png" type="Texture" id=1]
+[ext_resource path="res://assets/blobtest1.png" type="Texture" id=2]
+[ext_resource path="res://assets/blobtest3.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Profile.gd" type="Script" id=4]
 [ext_resource path="res://assets/star.png" type="Texture" id=5]
 [ext_resource path="res://assets/full-xp.png" type="Texture" id=6]
@@ -10,10 +10,10 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [node name="Profile" type="Node2D"]
@@ -27,8 +27,8 @@ margin_bottom = 39.0
 text = "Back"
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 110.5, 143 )
-scale = Vector2( 5, 5 )
+position = Vector2( 116, 116 )
+scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
 frame = 2
 speed_scale = 0.5
