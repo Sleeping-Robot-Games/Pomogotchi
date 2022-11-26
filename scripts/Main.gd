@@ -63,3 +63,4 @@ func _on_Timer_timeout():
 func _on_Profile_button_up():
 	hide()
 	get_node('../Profile').show()
+

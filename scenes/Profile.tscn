@@ -19,6 +19,11 @@ animations = [ {
 [node name="Profile" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 360.0
+margin_bottom = 640.0
+color = Color( 0.952941, 0.647059, 0.741176, 1 )
+
 [node name="Back" type="Button" parent="."]
 margin_left = 10.0
 margin_top = 8.0
@@ -30,7 +35,7 @@ text = "Back"
 position = Vector2( 116, 116 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 speed_scale = 0.5
 playing = true
 

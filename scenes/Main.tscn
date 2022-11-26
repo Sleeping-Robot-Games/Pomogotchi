@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/blobtest2.png" type="Texture" id=2]
@@ -961,6 +961,10 @@
 9/shapes = [  ]
 9/z_index = 0
 
+[sub_resource type="DynamicFont" id=14]
+size = 32
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 6 )
@@ -997,6 +1001,7 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
+position = Vector2( -11, 0 )
 
 [node name="sky" type="TileMap" parent="Background"]
 scale = Vector2( 4, 4 )
@@ -1052,12 +1057,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ReadyButtonLabel" type="Label" parent="Main"]
+margin_left = 138.0
+margin_top = 123.0
+margin_right = 224.0
+margin_bottom = 153.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Ready"
+
 [node name="Mode" type="RichTextLabel" parent="Main"]
 margin_left = 114.0
 margin_top = 10.0
 margin_right = 249.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 100, 30 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Break"
 scroll_active = false
@@ -1070,6 +1085,7 @@ margin_left = 146.0
 margin_top = 61.0
 margin_right = 230.0
 margin_bottom = 90.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "25:00"
 scroll_active = false
@@ -1244,9 +1260,9 @@ text = "START"
 [node name="Profile" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[connection signal="button_up" from="Main/Ready" to="." method="_on_Ready_button_up"]
+[connection signal="button_up" from="Main/Ready" to="Main" method="_on_Ready_button_up"]
 [connection signal="button_up" from="Main/TaskContainer/Profile" to="Main" method="_on_Profile_button_up"]
-[connection signal="timeout" from="Main/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Main/Timer" to="Main" method="_on_Timer_timeout"]
 [connection signal="popup_hide" from="Main/FocusPopUp" to="Main/FocusPopUp" method="_on_FocusPopUp_popup_hide"]
 [connection signal="button_up" from="Main/FocusPopUp/Start" to="Main/FocusPopUp" method="_on_Start_button_up"]
 [connection signal="button_up" from="Main/BreakPopUp/Start" to="Main/BreakPopUp" method="_on_Start_button_up"]
