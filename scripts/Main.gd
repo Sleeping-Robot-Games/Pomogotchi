@@ -32,9 +32,9 @@ func _on_Ready_button_up():
 	else:
 		$Timer.paused = !$Timer.paused
 		if $Timer.paused:
-			$Ready.text = 'Resume'
+			$ReadyButtonLabel.text = 'Resume'
 		else: 
-			$Ready.text = 'Pause'
+			$ReadyButtonLabel.text = 'Pause'
 
 
 func _on_Timer_timeout():
@@ -46,7 +46,7 @@ func _on_Timer_timeout():
 		timer_seconds = c.STANDARD_BREAK_SECONDS if timer_mode == c.FOCUS else c.STANDARD_FOCUS_SECONDS
 		timer_mode = c.BREAK if timer_mode == c.FOCUS else c.FOCUS
 		# Update the ready button and mode text
-		$Ready.text = 'Ready'
+		$ReadyButtonLabel.text = 'Ready'
 		$Mode.text = timer_mode
 		
 		if timer_mode == c.BREAK:

@@ -1,9 +1,7 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://assets/blobtest2.png" type="Texture" id=2]
-[ext_resource path="res://assets/blobtest1.png" type="Texture" id=3]
-[ext_resource path="res://assets/blobtest3.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Pet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/theme_focus_group.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://resources/alagard.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scripts/FocusPopUp.gd" type="Script" id=7]
@@ -981,14 +979,6 @@ font_data = ExtResource( 6 )
 size = 32
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
 [sub_resource type="DynamicFont" id=15]
 size = 32
 font_data = ExtResource( 6 )
@@ -1070,16 +1060,14 @@ __meta__ = {
 }
 
 [node name="ReadyButtonLabel" type="Label" parent="Main"]
-margin_left = 138.0
-margin_top = 123.0
-margin_right = 224.0
-margin_bottom = 153.0
+margin_left = 118.0
+margin_top = 121.0
+margin_right = 242.0
+margin_bottom = 151.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 14 )
 text = "Ready"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+align = 1
 
 [node name="Mode" type="RichTextLabel" parent="Main"]
 margin_left = 114.0
@@ -1104,15 +1092,6 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "25:00"
 scroll_active = false
-
-[node name="Sprite" type="AnimatedSprite" parent="Main"]
-position = Vector2( 179, 400 )
-scale = Vector2( 8, 8 )
-frames = SubResource( 1 )
-frame = 1
-speed_scale = 0.5
-playing = true
-offset = Vector2( 0.799999, -0.199997 )
 
 [node name="TaskContainer" type="HBoxContainer" parent="Main"]
 margin_left = -4.0
@@ -1298,6 +1277,9 @@ margin_top = 184.0
 margin_right = 197.0
 margin_bottom = 221.0
 text = "START"
+
+[node name="Pet" parent="." instance=ExtResource( 2 )]
+position = Vector2( 175, 396 )
 
 [node name="Profile" parent="." instance=ExtResource( 9 )]
 visible = false

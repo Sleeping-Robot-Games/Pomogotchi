@@ -2,7 +2,7 @@ extends WindowDialog
 
 onready var main = get_parent()
 onready var timer = main.get_node('Timer')
-onready var ready_button = main.get_node("Ready")
+onready var ready_button_label = main.get_node("ReadyButtonLabel")
 
 const DESCRIPTION_THEME_TEXT = {
 	'Adventure': "Your pet will adventure during this focus session! Gain +2 gold",
@@ -19,7 +19,7 @@ func _on_Start_button_up():
 	if main.focus_theme_mode:
 		# Start the timer if a focus theme is selected and update start button text
 		timer.start()
-		ready_button.text = 'Pause'
+		ready_button_label.text = 'Pause'
 		hide()
 		# Hide other UI not relevant to the focus
 		for element in main.ui_to_hide_on_focus:
