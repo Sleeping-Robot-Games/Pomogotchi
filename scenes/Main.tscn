@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Pet.tscn" type="PackedScene" id=2]
@@ -997,6 +997,14 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=16]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 32
+font_data = ExtResource( 6 )
+
 [node name="Game" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [ 180.0 ]
@@ -1247,6 +1255,7 @@ text = "Your pet will exercise during this focus session! Gaining +1 strength!"
 scroll_active = false
 
 [node name="BreakPopUp" type="WindowDialog" parent="Main"]
+self_modulate = Color( 0.952941, 0.647059, 0.741176, 1 )
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 336.0
@@ -1271,12 +1280,48 @@ bbcode_enabled = true
 bbcode_text = "[center]Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
 text = "Your pet gained +1 strength from exercise AND +1 Bonus strength from being happy.\""
 
-[node name="Start" type="Button" parent="Main/BreakPopUp"]
-margin_left = 125.0
-margin_top = 184.0
-margin_right = 197.0
-margin_bottom = 221.0
-text = "START"
+[node name="Start" type="TextureButton" parent="Main/BreakPopUp"]
+margin_left = 22.0
+margin_top = 160.0
+margin_right = 54.0
+margin_bottom = 176.0
+rect_scale = Vector2( 4, 4 )
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButtonLabel" type="Label" parent="Main/BreakPopUp"]
+margin_left = 47.0
+margin_top = 176.0
+margin_right = 121.0
+margin_bottom = 206.0
+custom_fonts/font = SubResource( 16 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skip" type="TextureButton" parent="Main/BreakPopUp"]
+margin_left = 163.0
+margin_top = 160.0
+margin_right = 195.0
+margin_bottom = 176.0
+rect_scale = Vector2( 4, 4 )
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 23 )
+
+[node name="SkipButtonLabel" type="Label" parent="Main/BreakPopUp"]
+margin_left = 192.0
+margin_top = 177.0
+margin_right = 258.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 17 )
+text = "Skip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Pet" parent="." instance=ExtResource( 2 )]
 position = Vector2( 175, 396 )
