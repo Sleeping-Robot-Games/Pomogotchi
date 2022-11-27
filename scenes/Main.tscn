@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/blobtest2.png" type="Texture" id=2]
@@ -26,6 +26,14 @@
 [ext_resource path="res://assets/uiArt/foodPressed_001.png" type="Texture" id=24]
 [ext_resource path="res://assets/uiArt/confirmation_001.png" type="Texture" id=25]
 [ext_resource path="res://assets/uiArt/shopPressed_001.png" type="Texture" id=26]
+[ext_resource path="res://assets/uiArt/play_001.png" type="Texture" id=27]
+[ext_resource path="res://assets/uiArt/adventure_001.png" type="Texture" id=28]
+[ext_resource path="res://assets/uiArt/study_001.png" type="Texture" id=29]
+[ext_resource path="res://assets/uiArt/fitness_001.png" type="Texture" id=30]
+[ext_resource path="res://assets/uiArt/playSelected_001.png" type="Texture" id=31]
+[ext_resource path="res://assets/uiArt/adventureSelected_001.png" type="Texture" id=32]
+[ext_resource path="res://assets/uiArt/fitnessSelected_001.png" type="Texture" id=33]
+[ext_resource path="res://assets/uiArt/studySelected_001.png" type="Texture" id=34]
 
 [sub_resource type="TileSet" id=8]
 0/name = "sky.png 0"
@@ -981,6 +989,10 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="DynamicFont" id=15]
+size = 32
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 6 )
@@ -1065,6 +1077,9 @@ margin_bottom = 153.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 14 )
 text = "Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Mode" type="RichTextLabel" parent="Main"]
 margin_left = 114.0
@@ -1149,59 +1164,89 @@ root_node = NodePath("../..")
 [node name="Timer" type="Timer" parent="Main"]
 
 [node name="FocusPopUp" type="WindowDialog" parent="Main"]
+self_modulate = Color( 0.952941, 0.647059, 0.741176, 1 )
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 334.0
 margin_bottom = 357.0
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FocusThemeContainer" type="HBoxContainer" parent="Main/FocusPopUp"]
-margin_left = 27.0
-margin_top = 55.0
-margin_right = 285.0
-margin_bottom = 111.0
-custom_constants/separation = 10
+margin_left = -8.0
+margin_top = 53.0
+margin_right = 74.0
+margin_bottom = 109.0
+rect_scale = Vector2( 4, 4 )
+custom_constants/separation = 3
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Adventure" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
-margin_right = 78.0
+[node name="Adventure" type="TextureButton" parent="Main/FocusPopUp/FocusThemeContainer"]
+margin_left = 4.0
+margin_right = 20.0
 margin_bottom = 56.0
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
 group = ExtResource( 5 )
-text = "Adventure"
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 32 )
 
-[node name="Exercise" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
-margin_left = 88.0
-margin_right = 153.0
+[node name="Exercise" type="TextureButton" parent="Main/FocusPopUp/FocusThemeContainer"]
+margin_left = 23.0
+margin_right = 39.0
 margin_bottom = 56.0
 toggle_mode = true
 group = ExtResource( 5 )
-text = "Exercise"
+texture_normal = ExtResource( 30 )
+texture_pressed = ExtResource( 33 )
 
-[node name="Study" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
-margin_left = 163.0
-margin_right = 210.0
+[node name="Study" type="TextureButton" parent="Main/FocusPopUp/FocusThemeContainer"]
+margin_left = 42.0
+margin_right = 58.0
 margin_bottom = 56.0
 toggle_mode = true
 group = ExtResource( 5 )
-text = "Study"
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 34 )
 
-[node name="Play" type="Button" parent="Main/FocusPopUp/FocusThemeContainer"]
-margin_left = 220.0
-margin_right = 258.0
+[node name="Play" type="TextureButton" parent="Main/FocusPopUp/FocusThemeContainer"]
+margin_left = 61.0
+margin_right = 77.0
 margin_bottom = 56.0
 toggle_mode = true
 group = ExtResource( 5 )
-text = "Play"
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 31 )
 
-[node name="Start" type="Button" parent="Main/FocusPopUp"]
-margin_left = 123.0
-margin_top = 189.0
-margin_right = 191.0
-margin_bottom = 221.0
-text = "START"
+[node name="Start" type="TextureButton" parent="Main/FocusPopUp"]
+margin_left = 91.0
+margin_top = 162.0
+margin_right = 123.0
+margin_bottom = 180.0
+rect_scale = Vector2( 4, 4 )
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButtonLabel" type="Label" parent="Main/FocusPopUp"]
+margin_left = 116.0
+margin_top = 179.0
+margin_right = 202.0
+margin_bottom = 209.0
+custom_colors/font_color = Color( 0.0823529, 0.0509804, 0.0980392, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Label" parent="Main/FocusPopUp"]
 margin_left = 47.0
@@ -1212,7 +1257,6 @@ custom_fonts/font = SubResource( 4 )
 text = "Time to Focus!"
 
 [node name="ThemeDescription" type="RichTextLabel" parent="Main/FocusPopUp"]
-visible = false
 margin_left = 13.0
 margin_top = 125.0
 margin_right = 297.0
