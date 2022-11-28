@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/petArt/hat_001.png" type="Texture" id=1]
 [ext_resource path="res://assets/petArt/pet_001.png" type="Texture" id=2]
@@ -121,7 +121,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Hatch"
 length = 2.1
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
@@ -133,6 +132,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 64, 65, 64, 66, 65, 67, 68, 69, 70, 71, 72 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hat:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 64, 65, 64, 65, 66, 67, 68, 69, 70, 71, 72 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -165,7 +176,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "Play"
+resource_name = "Play1"
 length = 1.6
 loop = true
 tracks/0/type = "value"
@@ -191,6 +202,35 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 55, 56, 57, 58, 59, 60, 61, 62 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Play2"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 55, 63 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hat:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 55, 63 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -462,9 +502,8 @@ vframes = 13
 
 [node name="Hat" type="Sprite" parent="."]
 position = Vector2( -12.75, -1.625 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-offset = Vector2( 25, -23.5 )
+offset = Vector2( 12.5, -6.125 )
 hframes = 6
 vframes = 13
 
@@ -475,7 +514,8 @@ anims/Eat = SubResource( 2 )
 anims/Happy = SubResource( 6 )
 anims/Hatch = SubResource( 7 )
 anims/Idle = SubResource( 8 )
-anims/Play = SubResource( 9 )
+anims/Play1 = SubResource( 9 )
+anims/Play2 = SubResource( 19 )
 anims/RESET = SubResource( 10 )
 anims/Sad = SubResource( 12 )
 anims/Sleep = SubResource( 13 )

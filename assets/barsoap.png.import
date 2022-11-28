@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold.png-896a5e04625b06df75df7f7803dcd7ae.stex"
+path="res://.import/barsoap.png-9ec5737b43e1b0ac645b7fb890c33c45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/uiArt/gold.png"
-dest_files=[ "res://.import/gold.png-896a5e04625b06df75df7f7803dcd7ae.stex" ]
+source_file="res://assets/barsoap.png"
+dest_files=[ "res://.import/barsoap.png-9ec5737b43e1b0ac645b7fb890c33c45.stex" ]
 
 [params]
 

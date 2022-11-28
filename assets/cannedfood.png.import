@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold.png-896a5e04625b06df75df7f7803dcd7ae.stex"
+path="res://.import/cannedfood.png-64afb4ebf51e900879ff570671a6cecd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/uiArt/gold.png"
-dest_files=[ "res://.import/gold.png-896a5e04625b06df75df7f7803dcd7ae.stex" ]
+source_file="res://assets/cannedfood.png"
+dest_files=[ "res://.import/cannedfood.png-64afb4ebf51e900879ff570671a6cecd.stex" ]
 
 [params]
 
