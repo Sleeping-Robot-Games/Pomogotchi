@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/empty-xp.png-1aba0e45e8b088278ca5a49c5b080a86.stex"
+path="res://.import/full-xp.png-f9e570b597473e3f7364227ee6f2b703.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/empty-xp.png"
-dest_files=[ "res://.import/empty-xp.png-1aba0e45e8b088278ca5a49c5b080a86.stex" ]
+source_file="res://assets/uiArt/full-xp.png"
+dest_files=[ "res://.import/full-xp.png-f9e570b597473e3f7364227ee6f2b703.stex" ]
 
 [params]
 
