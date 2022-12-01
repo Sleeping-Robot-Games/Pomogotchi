@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/empty-xp.png-4b94288de68519fb186fccac0c8d3821.stex"
+path="res://.import/levelBorderSingleStart.png-7ede0c44b50554084c1ab91109aa50c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/uiArt/empty-xp.png"
-dest_files=[ "res://.import/empty-xp.png-4b94288de68519fb186fccac0c8d3821.stex" ]
+source_file="res://assets/uiArt/levelBorderSingleStart.png"
+dest_files=[ "res://.import/levelBorderSingleStart.png-7ede0c44b50554084c1ab91109aa50c3.stex" ]
 
 [params]
 

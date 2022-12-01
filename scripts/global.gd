@@ -2,15 +2,23 @@ extends Node
 
 const PET_STATE = {
 	'gold': 0,
-	'intelligence': 0,
-	'strength': 0,
-	'hunger': 0,
-	'happiness': 0,
+	'hunger': 70,
+	'happiness': 80,
+	'clean': 20,
 	'fp': 0,
 	'xp': {
-		'Strength': 0,
-		'Intelligence': 4,
-		'Luck': 1
+		'Strength': {
+			'level': 0,
+			'currentLevelXP': 20
+			},
+		'Intelligence': {
+			'level': 7,
+			'currentLevelXP': 90
+		},
+		'Luck': {
+			'level': 5,
+			'currentLevelXP': 45
+		}
 	}
 }
 
