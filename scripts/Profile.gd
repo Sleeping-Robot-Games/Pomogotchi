@@ -29,8 +29,6 @@ func apply_xp():
 				xp_bar.value = g.PET_STATE.xp[xp_name].currentLevelXP
 			else:
 				xp_bar.value = 0
-		
-
 
 func _on_Profile_visibility_changed():
 	if visible:
