@@ -17,3 +17,7 @@ func _on_Start_button_up():
 	main.focus_theme_mode = ""
 	
 	hide()
+
+
+func _on_Skip_button_up():
+	hide()

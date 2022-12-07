@@ -1327,7 +1327,6 @@ __meta__ = {
 position = Vector2( 175, 396 )
 
 [node name="Profile" parent="." instance=ExtResource( 9 )]
-visible = false
 
 [connection signal="button_up" from="Main/Ready" to="Main" method="_on_Ready_button_up"]
 [connection signal="button_up" from="Main/TaskContainer/Profile" to="Main" method="_on_Profile_button_up"]
@@ -1335,3 +1334,4 @@ visible = false
 [connection signal="popup_hide" from="Main/FocusPopUp" to="Main/FocusPopUp" method="_on_FocusPopUp_popup_hide"]
 [connection signal="button_up" from="Main/FocusPopUp/Start" to="Main/FocusPopUp" method="_on_Start_button_up"]
 [connection signal="button_up" from="Main/BreakPopUp/Start" to="Main/BreakPopUp" method="_on_Start_button_up"]
+[connection signal="button_up" from="Main/BreakPopUp/Skip" to="Main/BreakPopUp" method="_on_Skip_button_up"]

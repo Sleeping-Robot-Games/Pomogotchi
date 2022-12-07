@@ -106,6 +106,13 @@ margin_right = 54.0
 margin_bottom = -5.0
 text = "Hunger"
 
+[node name="Amount" type="Label" parent="Hunger"]
+margin_left = 12.0
+margin_top = 19.0
+margin_right = 57.0
+margin_bottom = 33.0
+text = "50/100"
+
 [node name="Happiness" type="TextureProgress" parent="."]
 margin_left = 143.0
 margin_top = 295.0

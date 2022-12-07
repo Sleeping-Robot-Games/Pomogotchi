@@ -35,6 +35,36 @@ func _on_Ready_button_up():
 			$ReadyButtonLabel.text = 'Resume'
 		else: 
 			$ReadyButtonLabel.text = 'Pause'
+			
+func update_points_from_focus():
+	var main_increase = ""
+	var bonus_increase = ""
+	if focus_theme_mode == 'Adventure':
+		# Increase Gold
+			# Strength level increases
+		var gold = 1 + g.PET_STATE.xp.Strength.level
+		main_increase = str(gold)+' Gold'
+		g.update_pet_gold(gold)
+		randomize()
+		if randi()%10+1 >= 7:
+		# 30% chance to find an item
+			# TODO: Function to find items
+			# Intelligence level increase quality
+			bonus_increase = "AND found a ball!"
+		# If the pet didn't find an item and their happy get Luck
+		if not bonus_increase and g.PET_STATE.happiness >= 60:
+				bonus_increase = "AND gained +1 bonus Luck from being happy!"
+				g.update_pet_xp({'Luck': 1})
+		# Decrease all statuses
+		g.update_pet_statuses({'hunger': -1, 'happiness': -1, 'clean': -1})
+	elif focus_theme_mode == 'Exercise':
+		pass
+	elif focus_theme_mode == 'Study':
+		pass
+	elif focus_theme_mode == 'Play':
+		pass
+		
+	$BreakPopUp/Results.text = "Your pet gained +{main_increase} from {focus_theme_mode} {bonus_increase}".format({'main_increase': main_increase, 'focus_theme_mode': focus_theme_mode, 'bonus_increase': bonus_increase})
 
 
 func _on_Timer_timeout():
@@ -42,6 +72,9 @@ func _on_Timer_timeout():
 	if timer_seconds == 0:
 		# Stop the timer when it gets to zero
 		$Timer.stop()
+		# Update the points if focus was on
+		if timer_mode == c.FOCUS:
+			update_points_from_focus()
 		# Flip from Focus to Break or Vis Versa
 		timer_seconds = c.STANDARD_BREAK_SECONDS if timer_mode == c.FOCUS else c.STANDARD_FOCUS_SECONDS
 		timer_mode = c.BREAK if timer_mode == c.FOCUS else c.FOCUS

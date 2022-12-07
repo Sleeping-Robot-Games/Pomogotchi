@@ -5,10 +5,10 @@ onready var timer = main.get_node('Timer')
 onready var ready_button_label = main.get_node("ReadyButtonLabel")
 
 const DESCRIPTION_THEME_TEXT = {
-	'Adventure': "Your pet will adventure during this focus session! Gain +2 gold",
-	'Exercise': "Your pet will exercise during this focus session! Gain +1 strength",
-	'Study': "Your pet will study during this focus session! Gain +1 intelligence",
-	'Play': "Your pet will play during this focus session! Gain +2 happiness"
+	'Adventure': "Your pet will adventure during this focus session! Gains gold",
+	'Exercise': "Your pet will exercise during this focus session! Gains strength",
+	'Study': "Your pet will study during this focus session! Gains intelligence",
+	'Play': "Your pet will play during this focus session! Gains happiness"
 }
 
 func _ready():
