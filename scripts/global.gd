@@ -41,5 +41,3 @@ func update_pet_xp(xp_dict):
 		if PET_STATE.xp[xp_name].currentLevelXP == 100:
 			PET_STATE.xp[xp_name].currentLevelXP = 0
 			PET_STATE.xp[xp_name].level += 1
-		
-		

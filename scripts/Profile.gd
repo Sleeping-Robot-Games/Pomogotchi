@@ -13,6 +13,9 @@ func apply_stats():
 	$Hunger.value = g.PET_STATE.hunger
 	$Happiness.value = g.PET_STATE.happiness
 	$Clean.value = g.PET_STATE.clean
+	
+	$GoldValue.text = str(g.PET_STATE.gold)
+	$FPLabel.text = 'Friend Points: ' + str(g.PET_STATE.fp)
 
 func apply_xp():
 	for xp_name in g.PET_STATE.xp:

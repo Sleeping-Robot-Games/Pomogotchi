@@ -9,6 +9,7 @@ export(ButtonGroup) var focus_theme_group
 onready var ui_to_hide_on_focus = [
 	$TaskContainer,
 ]
+onready var pet = get_parent().get_node("Pet")
 
 func _ready():
 	$Mode.text = timer_mode
@@ -22,7 +23,6 @@ func update_display_time():
 	var seconds = (int(timer_seconds)) % 60
 	$Time.text = "%02d:%02d" % [minutes, seconds]
 
-
 func _on_Ready_button_up():
 	if $Timer.is_stopped():
 		if timer_mode == c.FOCUS:
@@ -32,10 +32,11 @@ func _on_Ready_button_up():
 	else:
 		$Timer.paused = !$Timer.paused
 		if $Timer.paused:
-			$ReadyButtonLabel.text = 'Resume'
+			$Ready/Label.text = 'Resume'
 		else: 
-			$ReadyButtonLabel.text = 'Pause'
-			
+			$Ready/Label.text = 'Pause'
+
+
 func update_points_from_focus():
 	var main_increase = ""
 	var bonus_increase = ""
@@ -66,10 +67,14 @@ func update_points_from_focus():
 		
 	$BreakPopUp/Results.text = "Your pet gained +{main_increase} from {focus_theme_mode} {bonus_increase}".format({'main_increase': main_increase, 'focus_theme_mode': focus_theme_mode, 'bonus_increase': bonus_increase})
 
-
 func _on_Timer_timeout():
 	timer_seconds -= 1
+	## TODO: Update pet animations to variants as the timer goes on
+	### Ex: After 10 min of workout focus, play another random workout animation
 	if timer_seconds == 0:
+		## TEMP ANIMATION PLACEMENT
+		## TODO: Play different emotions based on how the focus went and what points were gained
+		pet.animate('Idle')
 		# Stop the timer when it gets to zero
 		$Timer.stop()
 		# Update the points if focus was on
@@ -79,7 +84,7 @@ func _on_Timer_timeout():
 		timer_seconds = c.STANDARD_BREAK_SECONDS if timer_mode == c.FOCUS else c.STANDARD_FOCUS_SECONDS
 		timer_mode = c.BREAK if timer_mode == c.FOCUS else c.FOCUS
 		# Update the ready button and mode text
-		$ReadyButtonLabel.text = 'Ready'
+		$Ready/Label.text = 'Ready'
 		$Mode.text = timer_mode
 		
 		if timer_mode == c.BREAK:
@@ -92,6 +97,10 @@ func _on_Timer_timeout():
 		
 	update_display_time()
 
+func show_focus_option():
+	## TODO: The thought behind this function is to maybe give the player 
+	### a choice to focus again instead of break if they skip the break
+	$ReadyFocus.show()
 
 func _on_Profile_button_up():
 	hide()

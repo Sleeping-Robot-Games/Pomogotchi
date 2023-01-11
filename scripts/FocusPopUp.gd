@@ -2,7 +2,7 @@ extends WindowDialog
 
 onready var main = get_parent()
 onready var timer = main.get_node('Timer')
-onready var ready_button_label = main.get_node("ReadyButtonLabel")
+onready var ready_button_label = main.get_node("Ready/Label")
 
 const DESCRIPTION_THEME_TEXT = {
 	'Adventure': "Your pet will adventure during this focus session! Gains gold",
@@ -14,7 +14,6 @@ const DESCRIPTION_THEME_TEXT = {
 func _ready():
 	pass
 
-
 func _on_Start_button_up():
 	if main.focus_theme_mode:
 		# Start the timer if a focus theme is selected and update start button text
@@ -24,12 +23,12 @@ func _on_Start_button_up():
 		# Hide other UI not relevant to the focus
 		for element in main.ui_to_hide_on_focus:
 			element.hide()
+		main.pet.animate(main.focus_theme_mode)
 
 func _on_FocusTheme_pressed():
 	main.focus_theme_mode = main.focus_theme_group.get_pressed_button().name
 	$ThemeDescription.bbcode_text = '[center]' + DESCRIPTION_THEME_TEXT[main.focus_theme_mode]
 	$ThemeDescription.show()
-
 
 func _on_FocusPopUp_popup_hide():
 	$ThemeDescription.hide()

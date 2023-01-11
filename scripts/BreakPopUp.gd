@@ -3,7 +3,7 @@ extends WindowDialog
 
 onready var main = get_parent()
 onready var timer = main.get_node('Timer')
-onready var ready_button_label = main.get_node("ReadyButtonLabel")
+onready var ready_button_label = main.get_node("Ready/Label")
 
 
 func _ready():
@@ -21,3 +21,4 @@ func _on_Start_button_up():
 
 func _on_Skip_button_up():
 	hide()
+	## main.show_focus_option()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Pet.tscn" type="PackedScene" id=2]
@@ -971,6 +971,10 @@
 size = 32
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=18]
+size = 32
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 6 )
@@ -1063,19 +1067,39 @@ focus_mode = 0
 enabled_focus_mode = 0
 texture_normal = ExtResource( 25 )
 texture_pressed = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ReadyButtonLabel" type="Label" parent="Main"]
-margin_left = 118.0
-margin_top = 121.0
-margin_right = 242.0
-margin_bottom = 151.0
+[node name="Label" type="Label" parent="Main/Ready"]
+margin_left = -2.75
+margin_top = 3.25
+margin_right = 121.25
+margin_bottom = 33.25
+rect_scale = Vector2( 0.3, 0.3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 14 )
 text = "Ready"
 align = 1
+
+[node name="ReadyFocus" type="TextureButton" parent="Main"]
+visible = false
+margin_left = 134.0
+margin_top = 185.0
+margin_right = 166.0
+margin_bottom = 201.0
+rect_scale = Vector2( 3, 3 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 23 )
+
+[node name="Label" type="Label" parent="Main/ReadyFocus"]
+margin_left = 6.0
+margin_top = 4.66667
+margin_right = 92.0
+margin_bottom = 34.6667
+rect_scale = Vector2( 0.2, 0.2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "Focus"
 
 [node name="Mode" type="RichTextLabel" parent="Main"]
 margin_left = 114.0
@@ -1327,6 +1351,7 @@ __meta__ = {
 position = Vector2( 175, 396 )
 
 [node name="Profile" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="button_up" from="Main/Ready" to="Main" method="_on_Ready_button_up"]
 [connection signal="button_up" from="Main/TaskContainer/Profile" to="Main" method="_on_Profile_button_up"]
